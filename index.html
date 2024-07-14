@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <h1 id="status">Checking</h1>
+  <script>
+    async function checkInvite(inviteCode) {
+      const response = await fetch(`https://discord.com/api/v9/invites/${inviteCode}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        document.getElementById('status').textContent = 'Valid';
+      } else {
+        document.getElementById('status').textContent = 'Invalid';
+      }
+    }
+
+    checkInvite("uttp"); 
+  </script>
+</body>
+</html>
